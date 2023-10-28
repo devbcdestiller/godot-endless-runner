@@ -1,0 +1,70 @@
+[gd_scene load_steps=8 format=3 uid="uid://c067paw0bmdsy"]
+
+[ext_resource type="Script" path="res://src/entities/background/background.gd" id="1_2e8v7"]
+[ext_resource type="Texture2D" uid="uid://ctckew88qxb51" path="res://src/assets/spritesheets/background.png" id="1_okbd2"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jgyca"]
+atlas = ExtResource("1_okbd2")
+region = Rect2(900, 400, 300, 400)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g0ewn"]
+atlas = ExtResource("1_okbd2")
+region = Rect2(0, 0, 300, 400)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v2q41"]
+atlas = ExtResource("1_okbd2")
+region = Rect2(0, 400, 300, 400)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6413p"]
+atlas = ExtResource("1_okbd2")
+region = Rect2(301, 0, 299, 400)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3jnbs"]
+atlas = ExtResource("1_okbd2")
+region = Rect2(601, 400, 298, 400)
+
+[node name="Background" type="ParallaxBackground"]
+script = ExtResource("1_2e8v7")
+
+[node name="Sky" type="ParallaxLayer" parent="."]
+motion_mirroring = Vector2(599, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="Sky"]
+scale = Vector2(2, 2)
+texture = SubResource("AtlasTexture_jgyca")
+centered = false
+
+[node name="Clouds" type="ParallaxLayer" parent="."]
+motion_scale = Vector2(0.4, 0.4)
+motion_mirroring = Vector2(599, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="Clouds"]
+scale = Vector2(2, 2)
+texture = SubResource("AtlasTexture_g0ewn")
+centered = false
+
+[node name="Clouds2" type="ParallaxLayer" parent="."]
+motion_scale = Vector2(0.5, 0.5)
+motion_mirroring = Vector2(599, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="Clouds2"]
+scale = Vector2(2, 2)
+texture = SubResource("AtlasTexture_v2q41")
+centered = false
+
+[node name="Clouds3" type="ParallaxLayer" parent="."]
+motion_scale = Vector2(0.6, 0.6)
+motion_mirroring = Vector2(597, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="Clouds3"]
+scale = Vector2(2, 2)
+texture = SubResource("AtlasTexture_6413p")
+centered = false
+
+[node name="Clouds4" type="ParallaxLayer" parent="."]
+motion_mirroring = Vector2(596, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="Clouds4"]
+scale = Vector2(2, 2)
+texture = SubResource("AtlasTexture_3jnbs")
+centered = false
