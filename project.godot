@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Godot-endless-runner"
-run/main_scene="res://src/entities/player/player.tscn"
+run/main_scene="res://src/levels/debug.tscn"
 config/features=PackedStringArray("4.0", "GL Compatibility")
 config/icon="res://icon.svg"
 
