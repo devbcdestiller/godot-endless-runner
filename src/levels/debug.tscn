@@ -1,10 +1,24 @@
-[gd_scene load_steps=3 format=3 uid="uid://chjm6dfl4dtdt"]
+[gd_scene load_steps=5 format=3 uid="uid://chjm6dfl4dtdt"]
 
 [ext_resource type="PackedScene" uid="uid://glfsakypoysm" path="res://src/entities/player/player.tscn" id="1_cxqe1"]
 [ext_resource type="PackedScene" uid="uid://c067paw0bmdsy" path="res://src/entities/background/background.tscn" id="1_f6udr"]
+[ext_resource type="PackedScene" uid="uid://dltmk3ie73kj6" path="res://src/entities/obstacles/walls/walls.tscn" id="3_ronou"]
+[ext_resource type="PackedScene" uid="uid://b2da528wfutgb" path="res://src/entities/obstacles/pipes/pipe_head.tscn" id="4_k45vb"]
 
 [node name="debug" type="Node"]
 
 [node name="Background" parent="." instance=ExtResource("1_f6udr")]
 
 [node name="Player" parent="." instance=ExtResource("1_cxqe1")]
+
+[node name="Walls" parent="." instance=ExtResource("3_ronou")]
+position = Vector2(300, 32)
+scale = Vector2(2, 2)
+
+[node name="Walls2" parent="." instance=ExtResource("3_ronou")]
+position = Vector2(300, 768)
+scale = Vector2(2, 2)
+
+[node name="PipeBody" parent="." instance=ExtResource("4_k45vb")]
+position = Vector2(202, 720)
+scale = Vector2(3, 3)

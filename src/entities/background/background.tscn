@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://c067paw0bmdsy"]
+[gd_scene load_steps=10 format=3 uid="uid://c067paw0bmdsy"]
 
 [ext_resource type="Script" path="res://src/entities/background/background.gd" id="1_2e8v7"]
 [ext_resource type="Texture2D" uid="uid://ctckew88qxb51" path="res://src/assets/spritesheets/background.png" id="1_okbd2"]
@@ -22,6 +22,14 @@ region = Rect2(301, 0, 299, 400)
 [sub_resource type="AtlasTexture" id="AtlasTexture_3jnbs"]
 atlas = ExtResource("1_okbd2")
 region = Rect2(601, 400, 298, 400)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ais0l"]
+atlas = ExtResource("1_okbd2")
+region = Rect2(900, 368, 300, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j7aum"]
+atlas = ExtResource("1_okbd2")
+region = Rect2(900, 368, 300, 32)
 
 [node name="Background" type="ParallaxBackground"]
 script = ExtResource("1_2e8v7")
@@ -62,9 +70,27 @@ texture = SubResource("AtlasTexture_6413p")
 centered = false
 
 [node name="Clouds4" type="ParallaxLayer" parent="."]
+motion_scale = Vector2(0.85, 0.85)
 motion_mirroring = Vector2(596, 0)
 
 [node name="Sprite2D" type="Sprite2D" parent="Clouds4"]
 scale = Vector2(2, 2)
 texture = SubResource("AtlasTexture_3jnbs")
+centered = false
+
+[node name="BoundarySky" type="ParallaxLayer" parent="."]
+motion_mirroring = Vector2(600, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="BoundarySky"]
+scale = Vector2(2, 2)
+texture = SubResource("AtlasTexture_ais0l")
+centered = false
+
+[node name="BoundaryGround" type="ParallaxLayer" parent="."]
+motion_mirroring = Vector2(600, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="BoundaryGround"]
+position = Vector2(0, 736)
+scale = Vector2(2, 2)
+texture = SubResource("AtlasTexture_j7aum")
 centered = false

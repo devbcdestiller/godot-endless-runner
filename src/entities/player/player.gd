@@ -21,6 +21,13 @@ func _integrate_forces(state):
 
 
 func _on_body_entered(body):
-	hide()
+	#hide()
 	hit.emit()
-	$CollisionShape2D.set_deferred("disabled", true)
+	print("Game Over!")
+	#$CollisionShape2D.set_deferred("disabled", true)
+
+
+func _on_ready():
+	print("Player Ready!")
+	self.max_contacts_reported = 1
+	self.contact_monitor = true   # Replace with function body.
