@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://diy8ywgc0bwqt"]
+
+[ext_resource type="Script" path="res://src/levels/main_level/score/score_area.gd" id="1_s58oi"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tlpok"]
+
+[node name="ScoreArea" type="Area2D"]
+scale = Vector2(1, 20)
+collision_layer = 4
+collision_mask = 2
+script = ExtResource("1_s58oi")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_tlpok")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+
+[connection signal="body_shape_entered" from="." to="." method="_on_body_shape_entered"]
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]

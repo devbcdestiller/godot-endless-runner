@@ -1,0 +1,22 @@
+[gd_scene load_steps=3 format=3 uid="uid://deouypwcw3bup"]
+
+[ext_resource type="Script" path="res://src/entities/obstacles/pipes/pipes.gd" id="1_2n7bt"]
+[ext_resource type="PackedScene" uid="uid://4e6uhplavv3t" path="res://src/entities/obstacles/pipes/pipe.tscn" id="2_mdac5"]
+
+[node name="Pipes" type="Node2D"]
+scale = Vector2(3, 3)
+script = ExtResource("1_2n7bt")
+pipe_gap = 130.0
+min_pipe_gap_multiplier = 0.95
+max_pipe_gap_multiplier = 1.3
+
+[node name="PipeTop" parent="." instance=ExtResource("2_mdac5")]
+rotation = 3.14159
+
+[node name="PipeBottom" parent="." instance=ExtResource("2_mdac5")]
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+position = Vector2(30, 0)
+
+[connection signal="ready" from="." to="." method="_on_ready"]
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]

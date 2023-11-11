@@ -19,8 +19,6 @@ config/icon="res://icon.svg"
 
 window/size/viewport_width=600
 window/size/viewport_height=800
-window/stretch/mode="canvas_items"
-window/stretch/aspect="keep_width"
 window/handheld/orientation=1
 
 [input]
@@ -35,6 +33,14 @@ jump={
 [input_devices]
 
 pointing/emulate_touch_from_mouse=true
+
+[layer_names]
+
+2d_render/layer_1="obstacles"
+2d_render/layer_2="score"
+2d_physics/layer_1="obstacles"
+2d_physics/layer_2="player"
+2d_physics/layer_3="score"
 
 [rendering]
 

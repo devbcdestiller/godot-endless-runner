@@ -1,0 +1,28 @@
+[gd_scene load_steps=6 format=3 uid="uid://cwt0f73syfk7g"]
+
+[ext_resource type="Script" path="res://src/levels/main_level/main_level.gd" id="1_g2avu"]
+[ext_resource type="PackedScene" uid="uid://c067paw0bmdsy" path="res://src/entities/background/background.tscn" id="1_w8kpl"]
+[ext_resource type="PackedScene" uid="uid://dgolru2hgm3wc" path="res://src/levels/main_level/pipe_generation/pipe_generation.tscn" id="2_xxehk"]
+[ext_resource type="PackedScene" uid="uid://dltmk3ie73kj6" path="res://src/entities/obstacles/walls/walls.tscn" id="3_gd3l0"]
+[ext_resource type="PackedScene" uid="uid://glfsakypoysm" path="res://src/entities/player/player.tscn" id="4_shgdj"]
+
+[node name="MainLevel" type="Node2D"]
+script = ExtResource("1_g2avu")
+
+[node name="Walls" parent="." instance=ExtResource("3_gd3l0")]
+position = Vector2(300, 32)
+scale = Vector2(2, 2)
+
+[node name="Walls2" parent="." instance=ExtResource("3_gd3l0")]
+position = Vector2(300, 768)
+scale = Vector2(2, 2)
+
+[node name="Player" parent="." instance=ExtResource("4_shgdj")]
+
+[node name="PauseableTree" type="Node2D" parent="."]
+
+[node name="PipeGeneration" parent="PauseableTree" instance=ExtResource("2_xxehk")]
+
+[node name="Background" parent="PauseableTree" instance=ExtResource("1_w8kpl")]
+
+[connection signal="hit" from="Player" to="." method="_on_player_hit"]

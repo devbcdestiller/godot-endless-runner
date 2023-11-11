@@ -37,6 +37,7 @@ size = Vector2(32, 25.4375)
 
 [node name="Player" type="RigidBody2D"]
 position = Vector2(200, 400)
+collision_layer = 2
 script = ExtResource("1_iu7dp")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
@@ -50,4 +51,3 @@ scale = Vector2(2, 2)
 shape = SubResource("RectangleShape2D_esic7")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
-[connection signal="ready" from="." to="." method="_on_ready"]

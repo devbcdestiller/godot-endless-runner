@@ -1,0 +1,55 @@
+[gd_scene load_steps=6 format=3 uid="uid://4e6uhplavv3t"]
+
+[ext_resource type="Texture2D" uid="uid://dhn4bu2728g8m" path="res://src/assets/spritesheets/pipes.png" id="1_n7t5o"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hbgb0"]
+atlas = ExtResource("1_n7t5o")
+region = Rect2(36, 0, 24, 32)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_iurpx"]
+size = Vector2(24, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_73j7b"]
+atlas = ExtResource("1_n7t5o")
+region = Rect2(0, 14, 32, 18)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_oi56v"]
+size = Vector2(30, 17)
+
+[node name="Pipe" type="StaticBody2D"]
+collision_mask = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = SubResource("AtlasTexture_hbgb0")
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+position = Vector2(0, 32)
+texture = SubResource("AtlasTexture_hbgb0")
+
+[node name="Sprite2D3" type="Sprite2D" parent="."]
+position = Vector2(0, 64)
+texture = SubResource("AtlasTexture_hbgb0")
+
+[node name="Sprite2D4" type="Sprite2D" parent="."]
+position = Vector2(0, 96)
+texture = SubResource("AtlasTexture_hbgb0")
+
+[node name="Sprite2D5" type="Sprite2D" parent="."]
+position = Vector2(0, 128)
+texture = SubResource("AtlasTexture_hbgb0")
+
+[node name="Sprite2D6" type="Sprite2D" parent="."]
+position = Vector2(0, 160)
+texture = SubResource("AtlasTexture_hbgb0")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 80)
+shape = SubResource("RectangleShape2D_iurpx")
+
+[node name="Sprite2D7" type="Sprite2D" parent="."]
+position = Vector2(0, -25)
+texture = SubResource("AtlasTexture_73j7b")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
+position = Vector2(0, -25)
+shape = SubResource("RectangleShape2D_oi56v")

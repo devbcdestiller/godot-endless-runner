@@ -1,0 +1,29 @@
+[gd_scene load_steps=5 format=3 uid="uid://dgolru2hgm3wc"]
+
+[ext_resource type="Script" path="res://src/levels/main_level/pipe_generation/pipe_generation.gd" id="1_2rail"]
+[ext_resource type="PackedScene" uid="uid://deouypwcw3bup" path="res://src/entities/obstacles/pipes/pipes.tscn" id="2_n60r3"]
+[ext_resource type="PackedScene" uid="uid://diy8ywgc0bwqt" path="res://src/levels/main_level/score/score_area.tscn" id="3_trsab"]
+
+[sub_resource type="Curve2D" id="Curve2D_u8geb"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 704, 0, 0, 0, 0, 0, 704, 64, 0, 0, 0, 0, 704, 128, 0, 0, 0, 0, 704, 192, 0, 0, 0, 0, 704, 256, 0, 0, 0, 0, 704, 320, 0, 0, 0, 0, 704, 384)
+}
+point_count = 7
+
+[node name="PipeGeneration" type="Node2D"]
+script = ExtResource("1_2rail")
+pipes_scene = ExtResource("2_n60r3")
+score_scene = ExtResource("3_trsab")
+
+[node name="Spawn" type="Path2D" parent="."]
+curve = SubResource("Curve2D_u8geb")
+
+[node name="SpawnLocation" type="PathFollow2D" parent="Spawn"]
+position = Vector2(704, 0)
+rotation = 1.5708
+
+[node name="GenerateTimer" type="Timer" parent="."]
+wait_time = 3.0
+autostart = true
+
+[connection signal="timeout" from="GenerateTimer" to="." method="_on_generate_timer_timeout"]
